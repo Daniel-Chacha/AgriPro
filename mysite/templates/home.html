@@ -1,0 +1,70 @@
+{% extends "master.html" %}
+
+{% block title %}
+    AgriPro Home
+{% endblock title %}
+
+{% block headerInsertion %}
+    <h1>FARM MANAGEMENT</h1>
+{% endblock headerInsertion %}
+
+
+{% block content %}
+    <main> <br>
+        <div id="home">
+            <div class="item" onclick="window.location.href='{% url 'dashboard' %}'">
+                <h3>Farm Dashboard</h3>
+            </div>
+        
+            <div class="item" onclick="window.location.href='{% url 'planning' %}'">
+                <h3>Crop Planning and Rotation</h3>
+            </div>
+
+            <div class="item" onclick="window.location.href='{% url 'tips' %}'">
+                <h3>Farming Tips</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'soil' %}'">
+                <h3>Soil Health and Fertilizer Management</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'pest' %}'">
+                <h3>Pest and Disease Management</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'weather' %}'">
+                <h3>Weather Monitoring and Alerts</h3>
+            </div>
+
+            <div class="item" onclick="window.location.href='{% url 'livestock' %}'">
+                <h3>Livestock Management</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'financial' %}'">
+                <h3>Farm Financial Management</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'market' %}'">
+                <h3>Market Price and Sales Tracking</h3>
+            </div>
+
+            <div class="item" onclick="window.location.href='{% url 'grants' %}'">
+                <h3>Government or NGO Grants</h3>
+            </div>
+    
+            <div class="item" style="padding:0;" onclick="window.location.href='{% url 'sustainability' %}'">
+                <h3>Sustainability & Environmental Impact Tracker</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'prediction' %}'">
+                <h3>Crop Yield Prediction</h3>
+            </div>
+    
+            <div class="item" onclick="window.location.href='{% url 'community' %}'">
+                <h3>Community Forum</h3>
+            </div> 
+
+        </div>
+
+    </main>
+{% endblock content %}

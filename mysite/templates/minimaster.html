@@ -1,0 +1,75 @@
+{% extends "master.html" %}
+
+{% block headers %}
+    <header class="custom">
+        <h1>AgriPro</h1>
+        <div>
+            {% block headerInsertion %}{% endblock headerInsertion %}
+        </div>
+       {% block profilePik %}
+       <img id="profile-img" class="profile-img" onclick="toggleMenu()" src="https://via.placeholder.com/150" alt="profile" style="width:50px; height:50px; border-radius:70px; margin-right:20px;">
+       <div class="profile-menu" id="profile-menu">
+           <ul>
+               <li><a href="{% url 'dashboard' %} ">Profile</a></li>
+               <li><a href="{% url 'logout' %}">Log Out</a></li>
+           </ul>
+       </div>
+       {% endblock profilePik %}
+    </header>
+{% endblock headers %}
+
+{% block content %}
+    <main id="main-view"> 
+        <aside id="lside">
+            <h2 style="background-color:black; text-align:center;">SERVICES</h2>
+            <div>
+                <p> <a href="{% url 'dashboard' %}">Dashboard</a></p>
+                <p> <a href="{% url 'planning' %}">Crop Planning</a> </p>
+                <p> <a href="{% url 'tips' %}">Farming Tips</a> </p>
+                <p> <a href="{% url 'soil' %}"> Soil Health</a> </p>
+                <p> <a href="{% url 'pest' %}">Pest & Disease Management</a> </p>
+                <p> <a href="{% url 'livestock' %}">Livestock Management</a> </p>
+                <p> <a href="{% url 'financial' %}">Farm Financial Management</a> </p>
+                <p> <a href="{% url 'market' %}">Market Price & Sales Tracking</a> </p>
+                <p> <a href="{% url 'grants' %}">Govt & NGO Grants</a> </p>                
+                <p> <a href="{% url 'sustainability' %}">Sustainability & Environment Impact</a> </p>
+                <p> <a href="{% url 'prediction' %}">Yield Prediction</a> </p>
+                {% comment %} <p> <a href="{% url 'community' %}">Community Forum</a> </p> {% endcomment %}
+                
+            </div>
+        </aside> 
+        {% block usage %}{% endblock usage %}
+        
+        {% block rside %}
+        <aside id="rside">
+            <div class="calendar">
+                <div class="head">
+                    <button onclick="prevMonth()">&#8249;</button>
+                    <h2 id="monthYear"></h2>
+                    <button onclick="nextMonth()">&#8250;</button>
+                </div>
+                <table id="calendarTable">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thur</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendarBody">
+                        {% comment %} Calender dates will be inserted automatically here {% endcomment %}
+                    </tbody>
+                </table>
+            </div>            
+        </aside>
+        {% endblock rside %}
+
+        
+    </main>
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}

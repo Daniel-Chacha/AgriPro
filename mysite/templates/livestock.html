@@ -1,0 +1,151 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Livestock 
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1> Livestock Management </h1>
+    <p>Keep track of animal health, feeding schedules, and breeding programs to ensure the best care for your livestock.</p>
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle">
+        <div id="livestock-management-tool">
+              <!-- Animal Health Tracking Section -->
+    <section id="animal-health">
+        <h2>Animal Health Tracking</h2>
+        <form id="health-form" method ="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="form1">
+            <label for="animal-id">Animal ID:</label>
+            <input type="text" id="animal-id" name="animal-id" placeholder="Enter animal ID">
+            
+            <label for="vaccination-date">Vaccination Date:</label>
+            <input type="date" id="vaccination-date" name="vaccination-date">
+            
+            <label for="illness-history">Illness History:</label>
+            <textarea id="illness-history" name="illness-history" placeholder="Describe any illnesses..."></textarea>
+
+            <label for="treatment-history">Treatment History:</label>
+            <textarea id="treatment-history" name="treatment-history" placeholder="Describe treatments..."></textarea>
+
+            <button type="submit" onclick="submitHealthData(event)">Save</button>
+        </form>
+        <button class="collapsible" onclick="showTable('health-list')">Show Saved Expenses</button>
+        <div id="health-list" class="content">
+            <table id="health-table">
+                <thead>
+                    <tr>
+                        <th>Animal ID</th>
+                        <th>Vaccination Date</th>
+                        <th>Illness History</th>
+                        <th>Treatment History</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for health in health %}
+                    <tr>
+                        <td>{{ health.ANIMAL_ID }}</td>
+                        <td>{{ health.VACCINATION_DATE }}</td>
+                        <td>{{ health.ILLNESS_HISTORY }}</td>
+                        <td>{{health.TREATMENT_HISTORY}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Feeding Schedules Section -->
+    <section id="feeding-schedules">
+        <h2>Feeding Schedules and Supply Management</h2>
+        <form id="feeding-form" method='POST'>
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="form2">
+            <label for="animal-select">Select Animal:</label>
+            <select id="animal-select"name="animal-select" required>
+                <option value=""></option>
+                <option value="cattle">Cattle</option>
+                <option value="sheep">Sheep</option>
+                <option value="goat">Goat</option>
+                <option value="poultry">Poultry</option>
+            </select>
+
+            <label for="feed-amount">Feed Amount (kg):</label>
+            <input type="number" id="feed-amount" name="feed-amount" placeholder="Enter feed amount" required>
+
+            <label for="feed-time">Feeding Time:</label>
+            <input type="time" id="feed-time" name='feed-time' required>
+
+            <button type="submit" onclick="submitFeedingData(event)">Set Reminder</button>
+        </form>
+
+        <button class="collapsible" onclick="showTable('feeding-list')">Show Saved Expenses</button>
+        <div id="feeding-list" class="content">
+            <table id="feeding-table">
+                <thead>
+                    <tr>
+                        <th>Animal Type</th>
+                        <th>Feed Amount</th>
+                        <th>Feeding Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feed in feeding %}
+                    <tr>
+                        <td>{{ feed.ANIMAL_CATEGORY }}</td>
+                        <td>{{ feed.FEED_AMOUNT }}</td>
+                        <td>{{ feed.FEEDING_TIME }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Breeding Management Section -->
+    <section id="breeding-management">
+        <h2>Breeding and Reproduction Management</h2>
+        <form id="breeding-form" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="form3">
+            <label for="animal-breeding-id">Animal ID:</label>
+            <input type="text" id="animal-breeding-id" name="animal-breeding" placeholder="Enter animal ID" required>
+
+            <label for="last-breeding-date">Last Breeding Date:</label>
+            <input type="date" id="last-breeding-date" name="last-breeding" required>
+
+            <label for="expected-offspring-date">Expected Offspring Date:</label>
+            <input type="date" id="expected-offspring-date" name ="expected-offspring" required>
+
+            <button type="submit" onclick="submitBreedingData(event)">Save</button>
+        </form>
+
+        <button class="collapsible" onclick="showTable('breeding-list')">Show Saved Expenses</button>
+        <div id="breeding-list" class="content">
+            <table id="breeding-table">
+                <thead>
+                    <tr>
+                        <th>Animal ID</th>
+                        <th>Last Breeding</th>
+                        <th>Expected Breeding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for breed in breeding %}
+                    <tr>
+                        <td>{{ breed.ANIMAL_ID }}</td>
+                        <td>{{ breed.LAST_BREEDING }}</td>
+                        <td>{{ breed.EXPECTED_BIRTH }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+        </div>
+    </div>
+{% endblock usage %}

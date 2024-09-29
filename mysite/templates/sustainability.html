@@ -1,0 +1,109 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Sustainability 
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Sustainability & Environmental Impact Tracker</h1>
+    <p>Helping farmers transition to more sustainable practices and track their environmental impact.</p>
+{% endblock headerInsertion %}
+
+
+{% block usage %}
+    <div id="middle">
+        <div id="sustainability-envt-impact">
+
+            <!-- Carbon Footprint Calculator -->
+            <section id="carbon-footprint">
+                <h2>Carbon Footprint Calculator</h2>
+                <form id="footprint-form">
+                    <label for="fuel-used">Fuel Used (liters):</label>
+                    <input type="number" id="fuel-used" name="fuel-used" min="0" required>
+                
+                    <label for="electricity-used">Electricity Used (kWh):</label>
+                    <input type="number" id="electricity-used" name="electricity-used" min="0" required>
+            
+                    <label for="fertilizer-used">Fertilizer Used (kg):</label>
+                    <input type="number" id="fertilizer-used" name="fertilizer-used" min="0" required>                
+                
+                    <button type="submit" onclick="footprintCalc(event)">Calculate Carbon Footprint</button>
+                </form>                 
+                
+                <div class="results" id="footprint-result">
+                    <!-- Calculation result will be displayed here -->
+                </div>
+            </section>
+
+            <!-- Suggestions for Reducing Impact -->
+            <section id="suggestions">
+                <h2>Suggestions for Reducing Environmental Impact</h2>
+                <div class="suggestions">
+                    <h3>Reduce Water Usage:</h3>
+                    <p>Consider using drip irrigation systems and rainwater harvesting to minimize water consumption.</p>
+
+                    <h3>Minimize Chemical Usage:</h3>
+                    <p>Use integrated pest management (IPM) techniques and organic pesticides to reduce chemical inputs.</p>
+
+                    <h3>Improve Soil Health:</h3>
+                    <p>Incorporate crop rotation, cover crops, and organic fertilizers to enhance soil fertility and reduce erosion.</p>
+                </div>
+            </section>
+
+            <!-- Tracking Sustainable Practices -->
+            <section id="tracking">
+                <h2>Track Your Sustainable Practices</h2>
+                <form id="tracking-form" method="POST">   
+                    {% csrf_token %}                 
+                    <label for="practice">Select Practice:</label>
+                    <select id="practice" name="practice" required>
+                        <option value="">Choose a Practice</option>
+                        <option value="Crop Diversity">Crop Diversity</option>
+                        <option value="Reduced Tillage">Reduced Tillage</option>
+                        <option value="Use of Organic Fertilizers">Use of Organic Fertilizers</option>
+                    </select>                
+                
+                    <label for="area">Area Covered:</label>
+                    <input type="number" id="area" name="area" min="0" required>     
+                    
+                    <select id="metrics" required>
+                        <option value="">Select Unit</option>
+                        <option value="m²">Square Meter(m²)</option>
+                        <option value="ha">Hectares</option>
+                        <option value="acres">Acre(s)</option>
+                        <option value="km²">Square Kilometer (km²)</option>
+                        <option value="ft²">Square Foot(ft²)</option>
+                        <option value="mi²">Square Mile(mi²)</option>
+                    </select>
+                
+                    <label for="description">Description of Practice:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>                
+                
+                    <button type="submit" onclick="sustainableTrack(event)">Track Practice</button>                    
+                </form>
+                <button class="collapsible" onclick="showTable('sustainable-list')">Show Saved Expenses</button>
+                <div id="sustainable-list" class="content">
+                    <table id="sustainable-table">
+                        <thead>
+                            <tr>
+                                <th>Practice</th>
+                                <th>Area</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for practice in practices %}
+                            <tr>
+                                <td>{{ practice.PRACTICE }}</td>
+                                <td>{{ practice.AREA_COVERED }}</td>
+                                <td>{{ practice.DESCRIPTION }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock usage %}

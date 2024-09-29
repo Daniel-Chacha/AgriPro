@@ -1,0 +1,212 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Dashboard
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Farm Dashboard</h1>
+    <p>An overview of all farm activities and metrics</p>
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle">
+        <div id=dashboard>
+            {% comment %} <div class="card">
+                <span class="edit-icon" onclick="toggleEdit('profile-pik')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span>
+                 <div id="profile-pik-display" style="display:flex;">
+                    <img src="" style="width:170px; height:170px; background-color:grey; border-radius:90px;">
+                    <h2 id="name"></h2>
+                 </div> 
+                 <div id="profile-pik-edit" class="edit-form" style="display:none;">
+                    <input type="img" id="profile-pik-input">
+                    <button onclick="saveData('profile-pik')">Save</button>
+                 </div>  
+                
+            </div> {% endcomment %}
+    
+            <div class="card">
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('contact-detail')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2 id="name"></h2>
+    
+                <div id="contact-detail-display" style="display:flex;">
+                    <div style="width:40%;">
+                        <p>Country:<span id="country-display"></span> </p>
+                        <p>Town: <span id="town-display"></span> </p>
+                        <p>DoB:<span id="dob-display"></span> </p>
+                        <p>Age:<span id="age-display"></span> </p>
+                        <p>Gender:<span id="gender-display"></span> </p>
+                        <p>Phone Number:<span id="phoneNumber-display"></span> </p>
+                    </div>
+                    <div style="width:60%;">
+                        <p>Email:<span id="email-display"></span> </p>                        
+                        <p>LinkedIn:<span id="linkedIn-display"></span> </p>
+                        <p>X:<span id="x-display"></span> </p>
+                        <p>Instagram:<span id='instagram-display'></span> </p>
+                        <p>Tiktok:<span id="tiktok-display"></span> </p>
+                        <p>Facebook:<span id="facebook-display"></span> </p>
+                    </div>
+
+                </div>
+                <div id="contact-detail-edit" class="edit-form" style="display:none;">   
+                </div>
+            </div>
+    
+             <!-- Total Area Under Cultivation -->
+            <div class="card">
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('total-area')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2>Total Area Under Cultivation </h2>
+                <div id="total-area-display"></div>
+                {% comment %} <div id="total-area-edit" class="edit-form" style="display:none;">
+                    <select required>
+                        <option value=""></option>
+                        <option value="m²">Square Meter(m²)</option>
+                        <option value="ha">Hectares</option>
+                        <option value="Acres">Acre(s)</option>
+                        <option value="km²">Square Kilometer (km²)</option>
+                        <option value="ft²">Square Foot(ft²)</option>
+                        <option value="mi²">Square Mile(mi²)</option>
+                    </select>
+                    <input type="number" id="total-area-input">
+                    <button onclick="saveData('total-area')">Save</button>
+                </div> {% endcomment %}
+            </div>
+    
+            <!-- Crop Types and Status -->
+            <div class="card">
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('crop-status')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2>Crop Grown</h2>
+                <div id="crop-status-display"></div>
+                {% comment %} <div id="crop-status-edit" class="edit-form" style="display:none">
+                    <textarea id="crop-status-input" rows="3"></textarea>
+                    <button onclick="saveData('crop-status')">Save</button>
+                </div> {% endcomment %}
+            </div>
+    
+            <!-- Livestock Status -->
+            <div class="card">
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('livestock-status')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2>Livestock Status </h2>
+                <div id="livestock-status-display"></div>
+                {% comment %} <div id="livestock-status-edit" class="edit-form" style="display:none;">
+                    <textarea id="livestock-status-input" rows="4"></textarea>
+                    <button onclick="saveData('livestock-status')">Save</button>
+                </div> {% endcomment %}
+            </div>
+
+             <!--Labour -->
+             <div class=card>
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('labour')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2>Labour</h2>
+                <div id="labour-display">
+                    <p ><strong>Type: </strong><span id="labour-type-display"></span></p>
+                    <p id="labour-number-display"></p>
+                </div>
+                {% comment %} <div id="labour-edit" class="edit-form" style="display:none;">
+                    <select id="labourCategory">
+                        <option value="Manual">Manual</option>
+                        <option value="Mechanized">Mechanized</option>
+                    </select>
+                    <input type="number" id="labour-input">
+                    <button onclick="saveData('labour')">Save</button>
+                </div> {% endcomment %}
+    
+             </div>
+    
+             <!-- Recent Farming Activities -->
+             <div class="card">
+                {% comment %} <span class="edit-icon" onclick="toggleEdit('recent-activities')" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M7.99953 31.999L35.9994 4L43.9995 11.999L15.9995 39.999L5.99951 41.999L7.99953 31.999Z"/><path d="M30.9995 8.99902L38.9995 16.999"/><path d="M8.99951 31.999L15.9995 38.999"/><path d="M12.9995 34.999L34.9995 12.999"/></g></svg></span> {% endcomment %}
+                <h2>Recent Activities</h2>
+                <div id="recent-activities-display"></div>
+                {% comment %} <div id="recent-activities-edit" class="edit-form" style="display:none;">
+                    <textarea id="recent-activities-input" rows="3"></textarea>
+                    <button onclick="saveData('recent-activities')">Save</button>
+                </div> {% endcomment %}
+             </div>
+            
+        </div>
+    
+        <!-- Modal for First-Time Form -->
+        <div id="initialFormModal" class="modal">
+            <div class="modal-content">
+                <h2>Welcome! Please Enter Your Personal & Farm Details</h2>
+                <form id="intialForm" method='POST'>
+                    {% csrf_token %}
+                    
+                    <div class="formGroup">
+                        <label for="LinkedIn">LinkedIn Link (Optional):</label>
+                        <input type="link" id="LinkedIn" name="linkedin">
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="instagram">Instagram Link (Optional):</label>
+                        <input type="link" id="instagram" name=instagram>
+                    </div>
+
+
+                    <div class="formGroup">
+                        <label for="X">X Link (Optional):</label>
+                        <input type="link" id="X" name='x'>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="tiktok">Tiktok Link (Optional):</label>
+                        <input type="link" id="tiktok" name='tiktok'>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="facebook">Facebook Link (Optional):</label>
+                        <input type="link" id="facebook" name='facebook'>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="totalArea">Total Area Under Cultivation</label>
+                        <select id="area-metric" name='metrics'>
+                            <option value="">Select Metric</option>
+                            <option value="m²">Square Meter(m²)</option>
+                            <option value="ha">Hectares</option>
+                            <option value="Acres">Acre(s)</option>
+                            <option value="km²">Square Kilometer (km²)</option>
+                            <option value="ft²">Square Foot(ft²)</option>
+                            <option value="mi²">Square Mile(mi²)</option>
+                        </select>
+                        <input type="number" id="totalArea" name='total-area' placeholder="e.g., 2,5,10,500..." required>
+                    </div>
+    
+                    <div class="formGroup">
+                        <label for="cropStatus">Crop Grown</label>
+                        <textarea id="cropStatus" name="crop-status" rows="3" placeholder="e.g., Wheat, coffee, maize,.." required></textarea>
+                    </div>
+    
+                    <div class="formGroup">
+                        <label for="livestockStatus">Livestock Status</label>
+                        <textarea id="livestockStatus" name="livestock-reared" rows="3" placeholder="e.g., Cows: 10, Chicken:15..." required></textarea>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="labour-type">Labour Type:</label>
+                        <select id="labour-type" name='labour-type'>
+                            <option value="">Select Labour Type</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Mechanized">Mechanized</option>
+                        </select>
+                    </div>
+
+                    <div class="formGroup">
+                        <label for="total-workers">Total Number of Workers:</label>
+                        <input type="number" id="total-workers" name="total-workers" placeholder="e.g., 2,5,10,500..." required>
+                    </div>
+    
+                    <div class="formGroup">
+                        <label for="recentActivities">Recent Farming Activities</label>
+                        <textarea id="recentActivities" rows="3" name="recent-activities" placeholder="e.g., Planted 20 acres of wheat on Sept 10" required></textarea>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock usage %}

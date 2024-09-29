@@ -1,0 +1,51 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Grants
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Loans ,Government & NGO Grants </h1>
+    <p> A section dedicated to helping farmers find government grants, subsidies, or NGO assistance for agricultural development.</p>
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle">
+        <div id="govt-ngo-grants">    
+            <!-- Directory Section -->
+            <section class="section" id="directory">
+                <h2>Directory of Available Financial Aid Programs</h2>
+                <ul class="list">
+                    <li>
+                        <h3> Beneficiary Grants to Farmer Organizations (Kenya)</h3>
+                        <p><b>Description:</b> Successful applicants will be supported with grant value ranging between USD 20 000 to USD 100 000.</p>
+                        <a class="log" id=grant-application href="https://fao-grants.smapply.io/prog/FFF_KENYA_GRANTS/" target="blank">Apply</a>
+                    </li>
+                    <li>
+                        <h3>USAID Fund for SMEs and Farmers in Kenya</h3>
+                        <p><b>Description:</b> USAID has approved three catalytic projects totaling US $2,480,000 to stimulate the growth of Kenya’s small and medium enterprises. These grants will help strengthen the participation of Kenya’s SMEs in financial markets and the agriculture sector.</p>
+                        <a class="log" id=grant-application href="https://docs.google.com/forms/d/e/1FAIpQLSfIZS24a1-bnLkY8paS9CppWLEqCXngMUdWRFR2AMP3QUltsw/viewform" target="blank">Apply</a>
+                    </li>
+                    <li>
+                        <h3>The Agribusiness Challenge Fund</h3>
+                        <p><b>Description:</b>The Agribusiness Challenge Fund is a rolling call for proposals open from 18 March 2024 to 22 November 2024, with three application harvest periods in between. </p>
+                        <p>Support from the Fund includes grants ranging from US$ 500,000 to US$ 2,500,000, disbursed over a three-year period, based on the applicant's development stage, scalability, and business model,</p>
+                        <a id=grant-application class="log" href="https://frp.org/challenge-fund/the-agribusiness-challenge-fund" target="blank">Apply</a>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- Guidance Section -->
+            <section class="section" id="guidance">
+                <h2>Guidance on Improving Farm Eligibility for Support</h2>
+                <div class="guidance">
+                    <p><strong>1. Maintain Accurate Records:</strong> Keep detailed records of farm operations, expenses, and income.</p>
+                    <p><strong>2. Build a Strong Business Plan:</strong> Outline your farm's goals, financial projections, and strategies for growth.</p>
+                    <p><strong>3. Engage with Community Programs:</strong> Participate in local agricultural and community events to strengthen your network and credibility.</p>
+                    <p><strong>4. Stay Informed:</strong> Keep up-to-date with new funding opportunities and policy changes affecting the agricultural sector.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock usage %}

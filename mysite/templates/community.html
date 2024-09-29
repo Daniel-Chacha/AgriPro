@@ -1,0 +1,57 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Community
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Community Forum</h1>
+    <p>This platform allows farmers to connect, share knowledge, and get advice from other farmers and experts.</p>
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle">
+        <div id="community-forum">
+            <section id="forum">
+                <h2>Discussion Forums</h2>
+                <div>
+                    <h3>Forums by Category</h3>
+                    <ul class="list">
+                        <li>Crop Type:<a href="#"> Maize Farmers</a></li>
+                        <li>Crop Type:<a href="#"> Wheat Farmers</a></li>
+                        <li>Region:<a href="#"> East African Farmers</a></li>
+                        <li>Farming Techniques:<a href="#"> Organic Farming Forum</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section id="qa">
+                <h2>Q&A Section</h2>
+                <form id="qa-form">
+                    <label for="question">Ask a Question:</label>
+                    <input type="text" id="question" name="question" placeholder="What do you need help with?">
+                    <br>
+                    <button type="submit">Submit Question</button>
+                </form>
+        
+                <div id="questions">
+                    <h3>Recent Questions</h3>
+                    <ul>
+                        <li><strong>How can I prevent pests in my maize field?</strong> <em>— 3 answers</em></li>
+                        <li><strong>What’s the best organic fertilizer for rice?</strong> <em>— 5 answers</em></li>
+                        <li><strong>How do I optimize water usage in a dry region?</strong> <em>— 2 answers</em></li>
+                    </ul>
+                </div>
+            </section>
+        
+            <section id="guides">
+                <h2>Best Practice Guides</h2>
+                <ul class="list">
+                    <li><a href="#">Using Cover Crops for Soil Health</a></li>
+                    <li><a href="#">Tips for Efficient Irrigation</a></li>
+                    <li><a href="#">Organic Pest Control Methods</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+{% endblock usage %}

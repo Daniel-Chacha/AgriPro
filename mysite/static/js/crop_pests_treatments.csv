@@ -1,0 +1,31 @@
+Pest,OrganicTreatment,ChemicalTreatment
+Aphids,"Neem oil, Soap solution","Insecticidal soap, Pyrethrin"
+Whiteflies,"Yellow sticky traps, Neem oil","Imidacloprid, Pyriproxyfen"
+Caterpillars,"Bt (Bacillus thuringiensis), Hand-picking","Spinosad, Cyfluthrin"
+Slugs,"Copper tape, Beer traps","Metaldehyde, Iron phosphate"
+Spider Mites,"Neem oil, Horticultural oil","Abamectin, Pyridaben"
+Cutworms,"Bt (Bacillus thuringiensis), Hand-picking","Lambda-cyhalothrin, Chlorpyrifos"
+Root Maggots,"Crop rotation, Row covers","Diazinon, Fipronil"
+Thrips,"Neem oil, Insecticidal soap","Imidacloprid, Pyrethrin"
+Leafminers,"Neem oil, Spinosad","Abamectin, Cyromazine"
+Hornworms,"Hand-picking, Bt (Bacillus thuringiensis)","Methomyl, Indoxacarb"
+Flea Beetles,"Neem oil, Insecticidal soap","Imidacloprid, Pyrethrin"
+Squash Bugs,"Hand-picking, Row covers","Permethrin, Lambda-cyhalothrin"
+Cucumber Beetles,"Neem oil, Insecticidal soap","Imidacloprid, Pyrethrin"
+Corn Borers,"Bt (Bacillus thuringiensis), Hand-picking","Lambda-cyhalothrin, Chlorpyrifos"
+Armyworms,"Bt (Bacillus thuringiensis), Hand-picking","Lambda-cyhalothrin, Chlorpyrifos"
+Leafhoppers,"Neem oil, Insecticidal soap","Imidacloprid, Pyrethrin"
+Mealybugs,"Neem oil, Horticultural oil","Abamectin, Pyridaben"
+Scale,"Neem oil, Horticultural oil","Imidacloprid, Pyrethrin"
+Weevils,"Neem oil, Insecticidal soap","Imidacloprid, Pyrethrin"
+Nematodes,"Crop rotation, Marigold","Fosthiazate, Oxamyl"
+Blossom End Rot,"Calcium spray, Mulching",None
+Powdery Mildew,"Milk spray, Neem oil","Triadimefon, Myclobutanil"
+Downy Mildew,"Copper fungicide, Neem oil","Metalaxyl, Fosetyl-Al"
+Root Rot,"Crop rotation, Drainage",None
+Leaf Spot,"Copper fungicide, Neem oil","Chlorothalonil, Mancozeb"
+Scab,"Copper fungicide, Neem oil","Triadimefon, Myclobutanil"
+Blight,"Copper fungicide, Neem oil","Chlorothalonil, Mancozeb"
+Rust,"Copper fungicide, Neem oil","Triadimefon, Myclobutanil"
+Smut,"Crop rotation, Sanitation",None
+Ergot,"Crop rotation, Sanitation",None

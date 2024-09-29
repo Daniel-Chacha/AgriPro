@@ -1,0 +1,352 @@
+
+{% extends "master.html" %}
+{% load static %}
+
+
+{% block title %}
+    AgriPro
+{% endblock title %}
+
+{% block headers %}
+<header>
+    <h1>AgriPro</h1>
+    <nav id="nav">
+        <ul class="navigation">
+            <li><a href="#landing">Home</a></li>
+            <li> <a href="#ab">About Us</a></li>
+            <li> <a href="#services">Services</a></li>
+            <li style="border-right: none;"><a href="#contact">Contact</a></li>
+        </ul>
+        
+    </nav>
+    
+    <div>
+        <a href="{% url 'signup' %}" class="logs" style="background-color:transparent;">Sign Up</a>
+        <a href="{% url 'login' %}" class="logs">Login</a>
+    </div>
+   
+</header> 
+{% endblock headers %}
+
+{% block content %}
+    <main>
+        <div id="landing" >
+            <div class="intro">
+                <h2 id="intro-head"  style="background-color:transparent;">Your All-In-One Farm Management System</h2>
+                <p style="font-size: 20px;"><i>Mission</i>: Empowering Farmers, Cultivating Success </p>
+            </div>
+
+            <div class="img_box">
+                <div class="img_slider">
+                    <img src="{% static 'images/farm_prep2.avif' %}" alt="farm preparation">
+                    <img src="{% static 'images/farm_prep3.avif' %}" alt="farm preparation">
+                    <img src="{% static 'images/planting1.avif' %}" alt="farm preparation">
+                    <img src="{% static 'images/planting2.jpg' %}" alt="farm preparation">
+                    <img src="{% static 'images/growing1.avif' %}" alt="Crops growing">
+                    <img src="{% static 'images/growing2.jpeg' %}" alt="Crops growing">
+                    <img src="{% static 'images/weeding1.jpeg' %}" alt="Weeding">
+                    <img src="{% static 'images/weeding2.jpeg' %}" alt="weeding">
+                    <img src="{% static 'images/weeding3.jpeg' %}" alt="weeding">
+                    <img src="{% static 'images/post_weeding1.jpeg' %}" alt="Post weeding">
+                    <img src="{% static 'images/post_weeding2.jpeg' %}" alt="Post weeding">
+                    <img src="{% static 'images/post_weeding3.jpeg' %}" alt="Post weeding">
+                    <img src="{% static 'images/post_weeding4.jpeg' %}" alt="Post weeding">
+                    <img src="{% static 'images/harvesting1.avif' %}" alt="Harvesting">
+                    <img src="{% static 'images/harvesting2.avif' %}" alt="Harvesting">
+                    <img src="{% static 'images/harvesting3.jpeg' %}" alt="Harvesting">
+
+                </div>
+                <p style="font-size: 20px; color: white; text-align:center; font-weight: bold;">With you right from land preparation to selling your produce.</p>
+            </div>  <br> <br>   
+        </div>
+
+        <h2 id="ab">ABOUT US</h2>
+        <section id="about">
+            <article id="who" style="border-left: none;">
+                <h2>Who we are?</h2>
+                <p> <b>AgriPro</b> is a forward-thinking agricultural technology platform designed to empower farmers with the tools and knowledge needed to efficiently manage their farms. We are a team of passionate agricultural experts, tech enthusiasts, and innovators who believe in the power of technology to revolutionize farming. Our <b>mission</b> is to <b><i>provide farmers, from small-scale to large-scale operations, with an easy-to-use platform that helps optimize farm productivity, enhance resource management, and promote sustainability.</i></b></p>
+            </article>
+    
+            <article id="why">
+                <h2>Why we do it?</h2>
+                <p>We understand that farming is more than just a profession—it's a way of life. Agriculture plays a critical role in feeding the world, and yet farmers face numerous challenges such as unpredictable weather, market volatility, and limited access to modern resources. At AgriPro, <b><i>we are driven by the desire to make farming more efficient and profitable.</i> </b> We believe that by equipping farmers with better tools and information, we can help ensure food security, improve livelihoods, and foster sustainable farming practices for future generations.</p>
+            </article>
+    
+            <article id="how">
+                <h2>How we do it?</h2>
+                <p> <b>AgriPro</b> combines cutting-edge technology with practical farming solutions to deliver a comprehensive farm management platform. <b><i>Our user-friendly app provides farmers with real-time data on weather conditions, crop health, soil quality, and market trends</i></b>. By integrating analytics, satellite imagery, and farm-specific insights, AgriPro helps farmers make informed decisions. We also ensure farmers have  access to expert advice, ensuring that they have the <b><i>resources they need at every stage of production—from planting to harvest.</i></b></p>
+            </article>
+        </section>
+
+        <div>
+            <h2 id="services">AgriPro  SERVICES</h2> 
+            <p style="text-align:center; font-size:20px;">Ready to get rid of repetitive tasks which are often erraneous? AgriPro got you.</p>
+
+            <div class="tabs-wrapper">
+                <div class="tabs-heading-box" id="tabs-head">
+
+                <button id="scroll-btn-left" class="scroll-btn left" onclick="scrollContentLeft()">&#8249</button>
+
+                <div class="tab-heading" id="tab-head">
+                    <div id="tab1" class="tab-title active" onclick="openTab(event,'content1')">Farm Dashboard</div>
+                    <div id="tab2" class="tab-title" onclick="openTab(event,'content2')">Crop Rotation</div>
+                    <div id="tab3" class="tab-title" onclick="openTab(event,'content3')">Soil Health </div>
+                    <div id="tab4" class="tab-title" onclick="openTab(event,'content4')">Pest and Disease </div>
+                    <div id="tab5" class="tab-title" onclick="openTab(event,'content5')">Weather Monitoring</div>
+                    <div id="tab6" class="tab-title" onclick="openTab(event,'content6')">Farm Financial </div>
+                    <div id="tab7" class="tab-title" onclick="openTab(event,'content7')">Market Price </div>
+                    <div id="tab8" class="tab-title" onclick="openTab(event,'content8')">Community Forum</div>
+                    <div id="tab9" class="tab-title" onclick="openTab(event,'content9')">Farming Tips</div>
+                    <div id="tab10" class="tab-title" onclick="openTab(event,'content10')">Government  Grants</div>
+                    <div id="tab11" class="tab-title" onclick="openTab(event,'content11')">Livestock Management</div>
+                    <div id="tab12" class="tab-title" onclick="openTab(event,'content12')">Sustainability </div>
+                    <div id="tab13" class="tab-title" onclick="openTab(event,'content13')">Crop Yield Prediction</div>
+                    <div id="tab14" class="tab-title" onclick="openTab(event,'content14')">Irrigation Management</div>
+                </div>
+
+                <button id="scroll-btn-right" class="scroll-btn right" onclick="scrollContentRight()">&#8250</button>
+
+                </div>
+
+                <div class="display">
+
+                    <div id="content1" class="tab-content active">
+                        <div>
+                            <h3>Farm Dashboard</h3>
+                            <p>Provide a comprehensive dashboard that shows an overview of all farm activities and metrics.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Total area under cultivation</li>
+                                <li>Crop types and status (growth stage, expected yield, etc.)</li>
+                                <li>Livestock status (if applicable)</li>
+                                <li>Recent activities (e.g., planting, irrigation, pest control)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/farm_dashboard.png' %}" alt="farm dashboard">
+                        </div>
+                    </div>
+
+                    <div id="content2" class="tab-content">
+                        <div>
+                            <h3>Crop Planning and Rotation</h3>
+                            <p>A tool to help farmers plan their crop cycles and suggest optimal planting schedules based on seasonality and crop rotation.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li> Crop calendar (with dates for planting, watering, harvesting)</li>
+                                <li>Suggestions for crop rotation to improve soil health</li>
+                                <li>Automated notifications and reminders for planting or maintenance tasks</li>
+                                <li> Weather integration for planning around climate conditions</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/crop_rotation.jpeg' %}" alt="crop rotation">
+                        </div>
+                    </div>
+
+                    <div id="content3" class="tab-content">
+                        <div>
+                            <h3>Soil Health and Fertilizer Management</h3>
+                            <p>A soil management tool that guides farmers on how to maintain soil fertility, choose appropriate fertilizers, and monitor soil conditions.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Soil testing recommendations.</li>
+                                <li>Fertilizer suggestions based on crop and soil type.</li>
+                                <li>PH and nutrient management tracking.</li>
+                                <li>Organic farming options and recommendations</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/soil_health.avif' %}" alt="soil inspection">
+                        </div>
+                    </div>
+
+                    <div id="content4" class="tab-content">
+                        <div>
+                            <h3>Pest and Disease Management</h3>
+                            <p> Help farmers identify common pests and diseases and provide guidance on how to prevent or treat them.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Pest and disease library with images and solutions</li>
+                                <li> Crop-specific pest and disease warnings</li>
+                                <li>Recommendations for organic and chemical treatment options</li>
+                                <li> Pest tracking and prevention tips</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/pest_control.avif' %}" alt="pest management">
+                        </div>
+                    </div>
+
+                    <div id="content5" class="tab-content">
+                        <div>
+                            <h3>Weather Monitoring and Alerts</h3>
+                            <p>Provide farmers with up-to-date weather data that helps them make informed decisions about watering, planting, and harvesting.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Localized weather forecasts and alerts.</li>
+                                <li> Rainfall predictions to optimize irrigation</li>
+                                <li> Frost warnings or other extreme weather conditions.</li>
+                                <li>Automated advice for weather-dependent activities.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/weather_monitoring.avif' %}" alt="weather monitoring">
+                        </div>
+                    </div>
+
+                    <div id="content6" class="tab-content">
+                        <div>
+                            <h3>Farm Financial Management</h3>
+                            <p>A simple accounting and financial management system to help farmers track their expenses, income, and profits.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Expense tracking for seeds, fertilizers, labor, etc.</li>
+                                <li>Income tracking from produce sales</li>
+                                <li>Profit and loss statements</li>
+                                <li>Budgeting tools for the upcoming seasons.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/farm_finance.avif' %}" alt="farm finance management">
+                        </div>
+                    </div>
+
+                    <div id="content7" class="tab-content">
+                        <div>
+                            <h3>Market Price and Sales Tracking</h3>
+                            <p>Provide up-to-date market prices for various crops to help farmers decide when and where to sell their produce.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Real-time market prices for different regions.</li>
+                                <li>Price trend analysis</li>
+                                <li> Sales tracking (historical data on crop sales, yields, and revenue)</li>
+                                <li>Connections to buyers or marketplaces.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/sales_tracking.png' %}" alt="Sales tracking">
+                        </div>
+                    </div>
+
+                    <div id="content8" class="tab-content">
+                        <div>
+                            <h3>Community Forum</h3>
+                            <p>A platform where farmers can connect with experts or other farmers to share knowledge, ask questions, and get advice.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Discussion forums categorized by crop type, region, or farming techniques.</li>
+                                <li>Q&A section for troubleshooting farm-related problems.</li>
+                                <li> Best practice guides and shared experiences from other farmers.</li>
+                                <li>Networking opportunities for cooperative buying/selling.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/community_forum.png' %}" alt="community forum">
+                        </div>
+                    </div>
+
+                    <div id="content9" class="tab-content">
+                        <div>
+                            <h3>Farming Tips</h3>
+                            <p>A library of farming tutorials, videos, articles, and guides to help farmers improve their practices.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Articles on sustainable farming techniques.</li>
+                                <li>Step-by-step tutorials on crop planting, care, and harvesting.</li>
+                                <li>Videos on innovative farming methods.</li>
+                                <li> Access to expert advice (through a subscription model or free)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/farming_tips.avif' %}" alt="Farming tips">
+                        </div>
+                    </div>
+
+                    <div id="content10" class="tab-content">
+                        <div>
+                            <h3>Government or NGO Grants</h3>
+                            <p>A section dedicated to helping farmers find government grants, subsidies, or NGO assistance for agricultural development.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Directory of available financial aid programs</li>
+                                <li> Application tools for grants and loans</li>
+                                <li>Guidance on improving farm eligibility for support</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/govt_grants.jpeg' %}" alt="Government grants">
+                        </div>
+                    </div>
+
+                    <div id="content11" class="tab-content">
+                        <div>
+                            <h3>Livestock Management</h3>
+                            <p>For farmers who also manage livestock, provide tools to help them keep track of animal health, feeding schedules, and breeding programs.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li> Animal health tracking (vaccinations, illnesses, treatment history).</li>
+                                <li> Feeding schedules and supply management.</li>
+                                <li>Breeding and reproduction management.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/livestock_management.avif' %}" alt="livestock management">
+                        </div>
+                    </div>
+
+                    <div id="content12" class="tab-content">
+                        <div>
+                            <h3>Sustainability & Environmental Impact Tracker</h3>
+                            <p>Provide tools that allow farmers to measure their environmental impact and help them transition to more sustainable farming practices.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Carbon footprint calculator for farming activities.</li>
+                                <li> Suggestions for reducing water and chemical usage.</li>
+                                <li>Tracking of sustainable practices like crop diversity, reduced tillage, or use of organic fertilizers</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/sustainability.jpeg' %}" alt="Sustainability">
+                        </div>
+                    </div>
+
+                    <div id="content13" class="tab-content">
+                        <div>
+                            <h3>Crop Yield Prediction</h3>
+                            <p>Use data analytics to help farmers forecast crop yields, identify potential risks, and make data-driven decisions to improve productivity.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Crop yield predictions based on historical data and current conditions</li>
+                                <li> Data visualization for yield trends, cost analysis, and profitability</li>
+                                <li>Risk assessment tools for pests, diseases, and weather impacts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/crop_prediction.avif' %}" alt="Crop prediction">
+                        </div>
+                    </div>
+
+                    <div id="content14" class="tab-content">
+                        <div>
+                            <h3>Irrigation Management</h3>
+                            <p>Tools to help farmers track and manage irrigation schedules, ensuring optimal water use.</p>
+                            <p>Key Features:</p>
+                            <ul class="list">
+                                <li>Irrigation scheduling based on soil moisture levels and crop needs</li>
+                                <li> Water usage tracking and efficiency reporting</li>
+                                <li>Integration with smart irrigation systems (where feasible)</li> 
+                            </ul>
+                        </div>
+                        <div>
+                            <img id="cont" src="{% static 'images/irrigation.avif' %}" alt="irrigation">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+{% endblock content %}

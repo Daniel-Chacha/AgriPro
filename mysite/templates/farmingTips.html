@@ -1,0 +1,44 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Farming Tips
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Farming Tips  </h1>
+    <p> A library of farming tutorials, videos, articles, and guides to help farmers improve their practices.</p>
+    {% comment %} <h2>Tutorials on:</h2> {% endcomment %}
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle" style="width:80%; margin-right:5px;">
+        <div id="farming-tips">
+            <div class="toggle-heading" id="toggle-head">
+                <div id="toggle1" class="toggle-title active" onclick="viewTab(event,'planting-tutorials')">Crop Planting, Care and Harvesting</div>
+                <div id="toggle2" class="toggle-title" onclick="viewTab(event,'sustainable-articles')">Innovative &  Sustainable Farming Techniques</div>
+            </div>
+            <section id="planting-tutorials" class="toggle-content active">
+                <input type="search" id="search-bar" class="article-search" placeholder="Search articles...">
+                <button id="search-button">Search</button>
+                <div id="video-container" class="video-container"></div>
+                <button id="load-more">Load More</button>
+
+            </section>
+
+            <section id="sustainable-articles" class="toggle-content">
+                <input type="search" id="search-article-bar" class="article-search"  placeholder="Search articles...">
+                <button id="searching-button">Search</button>
+                <div id="videos" class="video-container"></div>
+                <button id="load-More">Load More</button>
+            </section> 
+        </div>
+    </div>
+  
+{% endblock usage %}
+
+{% block rside %}{% endblock rside %}
+
+{% block js %}
+<script src="{% static 'js/tips.js' %}"></script>
+{% endblock js %}

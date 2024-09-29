@@ -1,0 +1,91 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    AgriPro Login
+{% endblock title %}
+
+{% block headerInsertion %}
+    <h1 style="margin-right:650px;">LOG IN</h1>
+{% endblock headerInsertion %}
+{% block profilePik %}{% endblock profilePik %}
+
+{% block content %}
+    <main class="main-log">  <br> <br>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </div>
+         {% endif %}
+        <form class="form-box" method="POST">
+            {% csrf_token %}
+            <div class="form_group">
+                <label for="myemail">Email</label>
+                <input type="email" name="myemail" id="myemail" required autocomplete>
+            </div>  
+    
+            <div class="form_group">
+                <label for="pass">Password</label>  
+                <input type="password" name="pass" id="pass" required>
+            </div> 
+    
+            <div>
+                <a href="#forgot" class="log" style="padding: 4px;margin-right: 10px;">Forgot Password</a>
+            </div>
+
+            <div class="submit-box" style="grid-column: span 1;">
+                <button type="submit" id="sub">Submit</button>
+            </div>
+        </form>
+        <p>Don't have an account yet?</p>
+        <a href="{% url 'signup' %}" class="log">Sign Up</a>
+        <a href="{% url 'dashboard' %}">HOME</a>  
+    </main> <br> <br>
+{% endblock content %}
+
+{% block footer %}
+                           
+<h2 id="contact-header" >CONTACT US</h2>
+<div class="footer-box">
+    <div class="footer_right">
+        <p style="font-size: 20px;">Have a question? Get in touch!</p>
+        <div >
+            <a href="https://www.instagram.com" target="_blank"> <img src="{% static 'images/gram.jpeg' %}" alt="instagram" class="social_icon"></a>  
+            <a href="https://www.tiktok.com" target="_blank"> <img src="{% static 'images/tiktok.png' %}" alt="Tiktok" class="social_icon"></a>  
+            <a href="https://www.linkedin.com" target="_blank"> <img src="{% static 'images/link.png' %}" alt="Linkedin" class="social_icon"></a>  
+            <a href="https://www.x.com" target="_blank"> <img src="{% static 'images/x.png' %}" alt="X" class="social_icon"></a> 
+            <a href="https://www.facebook.com" target="_blank"> <img src="{% static 'images/face.png' %}" alt="Facebook" class="social_icon"></a>
+        </div>
+        <form class="form-box">
+            <div>
+                <label for="name">Full Name: </label> 
+                <input type="text" name="name" id="name" required>  
+            </div>
+            
+            <div>
+                <label for="email">Email Address: </label> 
+                <input type="text" name="email" id="email" required> 
+            </div> 
+
+            <div>
+                <label for="phoneNumber">Phone Number: </label> 
+                <input type="text" name="phoneNumber" id="phoneNumber" required> 
+            </div>
+            
+            <div style="grid-column: span 1;">
+                <label  for="message">Message :</label>   <br>
+                <textarea name="message" id="message" rows="3" required></textarea> 
+            </div>
+
+            <div class="submit-box">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<p> &gt;&gt;&gt;&copy; Copyright 2024 AgriPro | All rights reserved.&lt;&lt;&lt;  </p>
+{% endblock footer %}

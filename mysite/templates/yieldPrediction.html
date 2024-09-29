@@ -1,0 +1,158 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Yield Prediction
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Crop Yield Prediction</h1>
+    <p>Use data analytics to forecast crop yields, identify risks, and make informed decisions to improve productivity.</p>
+{% endblock headerInsertion %}
+
+{% block usage %}
+    <div id="middle">
+        <div id=yield-prediction>
+            <section>
+                <h2>Crop Yield Prediction Tool</h2>
+                <form id="yield-prediction-form" method="POST">
+                    {% csrf_token %}
+                    <label for="crop-type">Select Crop Type:</label>
+                    <select id="crop-type" name="crop-type">
+                        <option value=""></option>
+                        <option value="Cabbage">Cabbage</option>
+                        <option value="Coffee">Coffee</option>
+                        <option value="Sorghum">Sorghum</option>
+                        <option value="Lettuce">Lettuce</option>
+                        <option value="Flax">Flax</option>
+                        <option value="Soybeans">Soybeans</option>
+                        <option value="Tomatoes">Tomatoes</option>
+                        <option value="Pears">Pears</option>
+                        <option value="Sugarcane">Sugarcane</option>
+                        <option value="Cotton">Cotton</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Avocados">Avocados</option>
+                        <option value="Blueberries">Blueberries</option>
+                        <option value="Millet">Millet</option>
+                        <option value="Pineapple">Pineapple</option>
+                        <option value="Pumpkin">Pumpkin</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Cassava">Cassava </option>
+                        <option value="Spinach">Spinach</option>
+                        <option value="Grapes">Grapes</option>
+                        <option value="Beans">Beans</option>
+                        <option value="Hemp">Hemp</option>
+                        <option value="Garlic">Garlic</option>
+                        <option value="Tea">Tea</option>
+                        <option value="Amaranth">Amaranth</option>
+                        <option value="Quinoa">Quinoa</option>
+                        <option value="Greengrams">Greengrams</option>
+                        <option value="Zucchini">Zucchini</option>
+                        <option value="Strawberries">Strawberries</option>
+                        <option value="Carrots">Carrots</option>
+                        <option value="Onions">Onions</option>
+                        <option value="Chickpeas">Chickpeas</option>
+                        <option value="Cowpeas">Cowpeas</option>
+                        <option value="Potatoes">Potatoes</option>
+                        <option value="Bananas">Bananas</option>
+                        <option value="Peanuts">Peanuts</option>
+                        <option value="Lentils">Lentils</option>
+                        <option value="Cauliflower">Cauliflower</option>
+                        <option value="Tobacco">Tobacco</option>
+                        <option value="Cocoa">Cocoa</option>
+                        <option value="Mangoes">Mangoes</option>
+                        <option value="Apples">Apples</option>
+                        <option value="Oats">Oats</option>
+                        <option value="Broccoli">Broccoli</option>
+                        <option value="Peas">Peas</option>
+                        <option value="Maize">Maize</option>
+                        <option value="Barley">Barley</option>
+                        <option value="Oranges">Oranges</option>
+                        <option value="Sunflower">Sunflower</option>
+                        <option value="Corn">Corn</option>
+                        <option value="Alfalfa">Alfalfa</option>                        
+                    </select>
+
+                    <select id="soil-type" name="soil-type" required>
+                        <option value="">Select Soil Type</option>
+                        <option value="Loamy">Loam</option>
+                        <option value="Clay">Clay</option>
+                        <option value="Sandy">Sand</option>
+                        <option value="Silty">Silt</option>
+                        <option value="Peaty">Peat</option>
+                        <option value="Chalky">Chalky</option>
+                    </select>
+                    
+                    <label for="rainfall">Rainfall (mm):</label>
+                    <input type="number", id="rainfall" min="0" required>
+
+                    <label for="temperature">Temperature ('C):</label>
+                    <input type="number", id="temperature" required>
+
+                    <label for="fertilizer">Fertilizer (kg/ha):</label>
+                    <input type="number", id="fertilizer" required>
+
+                    <label for="area-size">Field Size (in ha):</label>
+                    <input type="number" id="area-size" name="area-size" placeholder="Enter size in ha" required>
+                    
+                    <button type="submit" onclick="predictCropYield(event)">Predict Crop Yield</button>
+                </form>
+                <div class="result" id="prediction-result">
+                    <!-- Calculation result will be displayed here -->
+                </div>
+
+                <div id="loading" class="modal_show">
+                    <div class="modal-cont">
+                        <div class="spinner"></div>
+                        <p>Processing your request, please wait...</p>
+                    </div>
+                </div>             
+            </section>
+    
+            <section>
+                <h2>General Guidelines to Improve Crop Yields</h2>
+                <h3>Soil Management</h3>
+                <ul class="list">
+                    <li><b>Soil Testing:</b> Regularly test your soil to determine nutrient deficiencies and pH levels.</li>
+                    <li><b>Soil Amendments: </b>Apply appropriate amendments, such as compost or lime, to improve soil structure and fertility.</li>
+                    <li><b>Crop Rotation: </b> Rotate crops to prevent nutrient depletion and reduce pest and disease pressure.</li>
+                </ul>
+
+                <h3>Water Management</h3>
+                <ul class="list">
+                    <li><b>Efficient Irrigation: </b> Implement efficient irrigation methods like drip irrigation or sprinkler systems to minimize water waste.</li>
+                    <li><b>Proper Drainage: </b>Ensure good drainage to prevent waterlogging and root rot.</li>
+                    <li><b>Mulching:</b>Use mulch to conserve moisture, suppress weeds, and protect against soil erosion.</li>
+                </ul>
+
+                <h3>Nutrient Management</h3>
+                <ul class="list">
+                    <li><b>Fertilizer Application:</b>Apply fertilizers based on soil test results to provide essential nutrients for optimal growth.</li>
+                    <li><b>Organic Matter: </b>Incorporate organic matter, such as compost or manure, to improve soil fertility and nutrient retention.</li>
+                    <li><b>Nutrient Cycling:</b>Promote nutrient cycling by using cover crops or intercropping.</li>
+                </ul>
+
+                <h3>Pest and Disease Control</h3>
+                <ul class="list">
+                    <li><b>Integrated Pest Management (IPM):</b>Use IPM strategies to control pests and diseases without relying solely on chemical pesticides.</li>
+                    <li><b>Resistant Varieties:</b>Plant varieties that are resistant to common pests and diseases.</li>
+                    <li><b>Sanitation: </b>Practice good sanitation practices to prevent the spread of pests and diseases.</li>
+                </ul>
+
+                <h3>Planting and Harvesting</h3>
+                <ul class="list">
+                    <li><b>Seed Quality:</b>Use high-quality seeds that are appropriate for your region and growing conditions.</li>
+                    <li><b>Proper Spacing:</b> Plant crops at the recommended spacing to maximize light and nutrient availability.</li>
+                    <li><b>Timely Harvesting: </b>Harvest crops at the optimal maturity stage to ensure maximum yield and quality.
+
+                    </li>
+                </ul>
+            </section>
+    
+            {% comment %} <section>
+                <h2>Risk Assessment Tools</h2>
+                <p>Evaluate potential risks such as pests, diseases, and weather impacts that could affect crop productivity.</p>
+            </section> {% endcomment %}
+        </div>
+    </div>
+{% endblock usage %}

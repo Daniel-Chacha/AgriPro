@@ -1,0 +1,61 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Planning
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Crop Planning & Weather Alerts</h1>
+    <p> A tool to help farmers plan their crop cycles and provide them with up-to-date weather data aid in decision making.</p>
+{% endblock headerInsertion %}
+
+
+{% block usage %}
+    <div id="middle">
+        <div id="crop-planning">
+            <section id="crop-calendar">
+                <h2>Crop calendar</h2>
+                {% comment %} <table class="farm-table" id="crop-calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Crop</th>
+                            <th>Planting Schedule</th>
+                            <th>Watering Schedule</th>
+                            <th>Weeding Schedule</th>
+                            <th>Fertilizer Usage</th>
+                            <th>Harvest Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="crop-calendar-body">
+                        <!--Dynamically generated table rows will be inserted here-->
+                    </tbody>
+                </table> {% endcomment %}
+                <button id="show-iframe-btn" class="log" style="padding:10px;">Get Crop Calendar</button>
+                <div id="iframeOverlay">
+                    <button id="closeIframeBtn">Close</button>
+                    <iframe id="crop-calendar-frame" src="https://cropcalendar.apps.fao.org/#/home"></iframe>
+                </div>
+                
+            </section>
+    
+    
+            <section id="weather-integration">
+                <h2>Current Weather Forecast </h2>
+                <h3 id="weather-forecast-header"></h3>
+                <div id="weather-forecast" class="forecast">
+                    <!--Dynamically generated weather forecast will be inserted here-->
+                </div>
+            </section>
+
+            <section id="weather-integration">
+                <h2>Rainfall Predictions</h2>
+                <h3 id="rainfall-forecast-header"></h3>
+                <div id="5-rainfall-forecast" class="forecast">
+                    <!--Dynamically generated weather forecast will be inserted here-->
+                </div>
+            </section>
+        </div>
+
+    </div>
+{% endblock usage %}

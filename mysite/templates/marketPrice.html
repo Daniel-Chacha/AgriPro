@@ -1,0 +1,38 @@
+{% extends "minimaster.html" %}
+{% load static %}
+
+{% block title %}
+    Market
+{% endblock title %} 
+
+{% block headerInsertion %}
+    <h1>Market Price & Sales Tracking </h1>
+    <p> Provide up-to-date market prices for various crops to help farmers decide when and where to sell their produce.</p>
+{% endblock headerInsertion %}
+
+
+{% block usage %}
+    <div id="middle" style="margin-right:10px; width: 80%;">
+        <div id="market-price-tracking" style="100%">
+                    <!-- Real-time Market Prices Section -->
+            <section id="market-prices">
+                <h2 style="margin-top:0px; padding-top:0px;">Real-Time Market Prices</h2>
+                <div id="price-overlay" style="display:flex; width:100%;height:450px;">
+                    {% comment %} <button id="closeIframeBtn">Close</button> {% endcomment %}
+                    <iframe id="crop-calendar-frame" src="https://amis.co.ke/"></iframe>
+                </div>
+            </section>
+
+            <!-- Price Trend Analysis Section -->
+            {% comment %} <section id="price-trends">
+                <h2>Price Trend Analysis</h2>
+                <div id="trend-chart">
+                    <!-- Placeholder for price trend chart (can be implemented using Chart.js or similar) -->
+                    <canvas id="trendCanvas"></canvas>
+                </div>
+            </section> {% endcomment %}
+
+        </div>
+    </div>
+{% endblock usage %}
+{% block rside %}{% endblock rside %}
