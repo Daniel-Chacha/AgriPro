@@ -6,6 +6,7 @@ body{
     background-color: #26eefd;
     margin: 0px;
     font-family: Nunito Sans;
+
 }
 
 header{
@@ -20,13 +21,15 @@ header{
     align-items: center;
 }
 
-header >h1{
+header h1{
     text-align: center;
     margin: 0px;
     text-decoration: underline 5px solid #ecf5e8;
-    font-size: 5rem;
+    font-size: 4rem;
     padding-bottom: 0%;
     padding: 0px;
+    width: 20%;
+  
 }
 
 header > p{
@@ -100,6 +103,14 @@ header > p{
     display: flex;
 }
 
+#inner{
+    display: flex;
+    margin-left: 150px;
+    padding-left: 0px;
+    /* margin-right: 20%; */
+    width: 80%;
+}
+
 .navigation >li{
     border-right: 2px solid white;
 }
@@ -142,13 +153,20 @@ header > p{
     border: none;
 }
 
+#logs-div{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .log:hover{
     background-color: #4CAF50;
     color: black;
 }
 
 main{
-    margin-top: 73px;
+    margin-top: 65px;
 }
 
 #landing{
@@ -157,8 +175,8 @@ main{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 525px;
-    opacity: 100%;
+    height: 533px;
+    /* opacity: 0.8; */
     scroll-margin-top: 90px;
 }
 
@@ -168,7 +186,7 @@ main{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 101%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
@@ -194,6 +212,7 @@ main{
 .img_slider{
     display: flex;    /*keep images in a row*/
     animation: moveImages 50s linear infinite;
+    width: 100%;
 }
 
 .img_slider img{
@@ -247,6 +266,7 @@ main{
     width: 30px;
     height: auto;
     margin-left: 20px;
+    border-radius: 7px;
 }
 
 footer{
@@ -259,7 +279,7 @@ footer{
 
 .footer-box{
     display: flex;
-   
+    margin-bottom: 0px;
 }
 
 
@@ -1060,4 +1080,78 @@ button:hover {
 
 #forum a:hover {
     text-decoration: underline;
+}
+
+
+
+/* For mobile phones */
+@media (max-width: 480px){
+    main{
+        width: 100%;
+        margin-top: 100px;
+    }
+    header h1{
+        font-size: 2rem;
+        width: 30%;
+    }
+    #about{
+        display: block;
+    }
+    .tab-content.active{
+        display: block;
+    }
+    #cont{
+        width: 350px;
+    }
+    .tabs-heading-box{
+        margin-left: 0px;
+    }
+    .tab-content{
+        margin-left: 20px;
+    }
+    #landing::before{
+        margin-top: 100px;
+        height: 60%;
+    }
+    #about >#who, #why ,#how{
+        border-left: none;        
+    }
+    header{
+        display: block;
+    }
+    
+    header h1{
+        padding-right: 0px;
+        width: 100%;      
+    }
+    #inner{
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    #logs-div{
+        display: flex;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        
+    }
+    .navigation  li,.navigation a{  
+        margin-right: 10px;
+      
+    }
+    #rside{
+        display: none;
+    }
+    /* #community-forum, #crop-planning, #dashboard, #dashboard */
+    #middle{
+        width: 75%;
+    }
+    
+}
+
+@media (max-width:1024){
+    main{
+        width: 100%;
+        margin-top: 100px;
+    }
 }

@@ -6,7 +6,7 @@
 {% endblock title %} 
 
 {% block headerInsertion %}
-    <h1>Farm Financial Management </h1>
+    <h2>Farm Financial Management </h1>
     <p>Track your expenses, income, and profits for better farm financial management.</p>
 {% endblock headerInsertion %}
 
@@ -14,111 +14,111 @@
     <div id="middle">
         <div id="farm-financial-management">
             <!-- Expense Tracking Section -->
-    <section id="expense-tracking">
-        <h2>Expense Tracking</h2>
-        <form id="expense-form">
-            {% csrf_token %}
-            {% comment %} <input type="hidden" name="form_type" value="form1"> {% endcomment %}
-            <label for="expense-type">Expense Type:</label>
-            <select id="expense-type" required name="expense-type">
-                <option value="">Select Expense</option>
-                <option value="seeds">Seeds</option>
-                <option value="fertilizers">Fertilizers</option>
-                <option value="labor">Labor</option>
-                <option value="equipment">Equipment</option>
-                <option value="other">Other</option>
-            </select>
+            <section id="expense-tracking">
+                <h2>Expense Tracking</h2>
+                <form id="expense-form">
+                    {% csrf_token %}
+                    {% comment %} <input type="hidden" name="form_type" value="form1"> {% endcomment %}
+                    <label for="expense-type">Expense Type:</label>
+                    <select id="expense-type" required name="expense-type">
+                        <option value="">Select Expense</option>
+                        <option value="seeds">Seeds</option>
+                        <option value="fertilizers">Fertilizers</option>
+                        <option value="labor">Labor</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="other">Other</option>
+                    </select>
 
-            <label for="expense-amount">Amount (Ksh):</label>
-            <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter amount" required>
+                    <label for="expense-amount">Amount (Ksh):</label>
+                    <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter amount" required>
 
-            <label for="expense-date">Date:</label>
-            <input type="date" id="expense-date" name="expense-date" required>
+                    <label for="expense-date">Date:</label>
+                    <input type="date" id="expense-date" name="expense-date" required>
 
-            <button type="submit" id="expense-form-submit" onclick="expenseDataSubmit(event)" >Save</button>
-        </form>
+                    <button type="submit" id="expense-form-submit" onclick="expenseDataSubmit(event)" >Save</button>
+                </form>
 
-        <button class="collapsible" onclick="showTable('expense-list')">Show Saved Expenses</button>
-        <div id="expense-list" class="content">
-            <table id="expense-table">
-                <thead>
-                    <tr>
-                        <th>Expense Type</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for expense in expenses %}
-                    <tr>
-                        <td>{{ expense.EXPENSE_TYPE }}</td>
-                        <td>{{ expense.AMOUNT }}</td>
-                        <td>{{ expense.DATE }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </section>
+                <button class="collapsible" onclick="showTable('expense-list')">Show Saved Expenses</button>
+                <div id="expense-list" class="content">
+                    <table id="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Expense Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for expense in expenses %}
+                            <tr>
+                                <td>{{ expense.EXPENSE_TYPE }}</td>
+                                <td>{{ expense.AMOUNT }}</td>
+                                <td>{{ expense.DATE }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    <!-- Sales Tracking Section -->
-    <section id="sales-tracking">
-        <h2>Income & Sales Tracking</h2>
-        <form id="sales-form" method="POST">
-            {% csrf_token %}
-            {% comment %} <input type="hidden" name="form_type" value="form2"> {% endcomment %}
-            <label for="product">Product:</label>
-            <input type="text" id="product" name="product" placeholder="Enter Product Name" required>
+            <!-- Sales Tracking Section -->
+            <section id="sales-tracking">
+                <h2>Income & Sales Tracking</h2>
+                <form id="sales-form" method="POST">
+                    {% csrf_token %}
+                    {% comment %} <input type="hidden" name="form_type" value="form2"> {% endcomment %}
+                    <label for="product">Product:</label>
+                    <input type="text" id="product" name="product" placeholder="Enter Product Name" required>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity Sold" required>
-            <select id="unit" name="unit" required>
-                <option value="">Unit Of Measurement</option>
-                <option value="kgs">Kgs</option>
-                <option value="tons">Tonnes</option>
-                <option value='lb'>Pounds(lb)</option>
-                <option></option>
-            </select>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity Sold" required>
+                    <select id="unit" name="unit" required>
+                        <option value="">Unit Of Measurement</option>
+                        <option value="kgs">Kgs</option>
+                        <option value="tons">Tonnes</option>
+                        <option value='lb'>Pounds(lb)</option>
+                        <option></option>
+                    </select>
 
-            <label for="price">Amount (Ksh):</label>
-            <input type="number" id="price" name="price" placeholder="Enter Price" required>
+                    <label for="price">Amount (Ksh):</label>
+                    <input type="number" id="price" name="price" placeholder="Enter Price" required>
 
-            <label for="income-date">Date:</label>
-            <input type="date" id="income-date" name="income-date" required>
+                    <label for="income-date">Date:</label>
+                    <input type="date" id="income-date" name="income-date" required>
 
-            <label for="buyer">Buyer (Optional):</label>
-            <input type="text" id="buyer" name="buyer" placeholder="Enter Buyer's Name">
+                    <label for="buyer">Buyer (Optional):</label>
+                    <input type="text" id="buyer" name="buyer" placeholder="Enter Buyer's Name">
 
-            <button type="submit"  onclick="salesDataSubmit(event)">Save</button>
-        </form>
+                    <button type="submit"  onclick="salesDataSubmit(event)">Save</button>
+                </form>
 
-        <div id="sales-history">
-            <button class="collapsible" onclick="showTable('sales-list')">Show Saved Expenses</button>
-            <div id="sales-list" class="content">
-                <table id="sales-table">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                            <th>Buyer Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for income in income %}
-                        <tr>
-                            <td>{{ income.PRODUCT_NAME }}</td>
-                            <td>{{ income.QUANTITY }}</td>
-                            <td>{{ income.AMOUNT }}</td>
-                            <td>{{ income.DATE }}</td>
-                            <td>{{ income.BUYER_NAME }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <div id="sales-history">
+                    <button class="collapsible" onclick="showTable('sales-list')">Show Saved Expenses</button>
+                    <div id="sales-list" class="content">
+                        <table id="sales-table">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Buyer Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for income in income %}
+                                <tr>
+                                    <td>{{ income.PRODUCT_NAME }}</td>
+                                    <td>{{ income.QUANTITY }}</td>
+                                    <td>{{ income.AMOUNT }}</td>
+                                    <td>{{ income.DATE }}</td>
+                                    <td>{{ income.BUYER_NAME }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
     </section>
 
     <!-- Profit and Loss Statement Section -->
