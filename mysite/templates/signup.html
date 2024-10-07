@@ -6,15 +6,16 @@
 {% endblock title %}
 
 {% block headerInsertion %}
-    <h1 style="margin-right:650px;">SIGN UP</h1>
+    <h2 style="margin-right:650px;">SIGN UP</h2>
 {% endblock headerInsertion %}
 {% block profilePik %}{% endblock profilePik %}
 
 {% block content %}
     <main class="main-log"> <br>
 
-        <p><b>Please Fill in the Form below to register:</b> </p>
+        
         <div class="messages">
+            <p><b>Please Fill in the Form below to register:</b> </p>
             {% for message in messages %}
                 <p>{{ message }}</p>
             {% endfor %}

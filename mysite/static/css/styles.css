@@ -623,7 +623,6 @@ tbody td:hover{
     width: 55%;
     overflow-y: auto;
     height: 100%;
-    
     margin-left: 20%;
     margin-right: 26%;
     margin-bottom: 20px;
@@ -1088,7 +1087,7 @@ button:hover {
 @media (max-width: 480px){
     main{
         width: 100%;
-        margin-top: 100px;
+        margin-top: 150px;
     }
     header h1{
         font-size: 2rem;
@@ -1142,16 +1141,40 @@ button:hover {
     #rside{
         display: none;
     }
-    /* #community-forum, #crop-planning, #dashboard, #dashboard */
+ 
+     #lside{
+        width: 23%;
+        margin-top: 30px;
+     }
     #middle{
-        width: 75%;
+        margin-right: 10px;
+        width: 80%;
+    }
+    #profile-img{
+        position: absolute;
+        top: 5%;
+        right: 2%;
+    }
+    .collapsible {
+        right: -110px;
+    }
+    footer{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
     }
     
 }
 
-@media (max-width:1024){
+@media (max-width:1050){
     main{
         width: 100%;
         margin-top: 100px;
+    }
+    #lside{
+        height: auto;
+    }
+    #rside{
+        height: 40%;
     }
 }
